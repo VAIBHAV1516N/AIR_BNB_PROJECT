@@ -4,10 +4,8 @@ const Listing= require("../models/listing.js")
 const dbUrl = process.env.ATLASDB_URL;
 
 async function main(){
-    await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust")
+    await mongoose.connect(dbUrl); // Use deployment DB URL from environment
 }
-
-await mongoose.connect("mongodb://127.0.0.1:27017/wanderlust")
 
 main().then(()=>{
     console.log("connected to DB")

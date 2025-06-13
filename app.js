@@ -1,4 +1,3 @@
-
 //NEW CODE
 
 if (process.env.NODE_ENV !== "production") {
@@ -30,7 +29,7 @@ const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 // MongoDB setup
 const dbUrl = process.env.ATLASDB_URL;

@@ -17,6 +17,7 @@ module.exports.showListing = async (req,res)=>{
     if(!listing){
         req.flash("error", "Listing was requested does not exists!");
         res.redirect("/listings");
+        return; // Prevent further execution
     }
     console.log(listing);
     res.render("listings/show.ejs",{listing})
@@ -38,7 +39,8 @@ module.exports.editListing = async (req,res)=>{
     const listing= await Listing.findById(id);
     if(!listing){
         req.flash("error", "Listing you requested  for does not exist!");
-        res.redirect("/listing");
+        res.redirect("/listings"); // Fixed path
+        return;
     }
 
     let originalImageUrl = listing.image.url;

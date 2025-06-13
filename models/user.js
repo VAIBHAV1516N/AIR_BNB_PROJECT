@@ -6,6 +6,7 @@ const userSchema = new Schema({
     email : {
         type : String,
         required : true,
+        unique : true // Add unique index for deployment best practice
     },
 });
 
