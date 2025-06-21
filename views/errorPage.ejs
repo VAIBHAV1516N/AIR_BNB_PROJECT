@@ -2,16 +2,8 @@
 
 <div class="container mt-5">
   <h1 class="text-danger">An Error Occurred</h1>
-  <p><%= message || 'Something went wrong.' %></p>
-</div>
-
-<%- include('includes/footer') %>
-<%- include('includes/navbar') %>
-
-<div class="container mt-5">
-  <h1 class="text-danger">An Error Occurred</h1>
   <p>
-    <%= err && err.message ? err.message : 'Something went wrong.' %>
+    <%= (err && err.message) ? err.message : (message || 'Something went wrong.') %>
   </p>
   <% if (err && err.statusCode) { %>
     <p>Status Code: <%= err.statusCode %></p>
